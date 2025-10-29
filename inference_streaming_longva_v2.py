@@ -700,7 +700,7 @@ def run_inference(args):
     _, model_cuda_1, _, _ = load_pretrained_model(model_path, None, "llava_qwen", device_map="cuda:1")
     print("model_cuda_1 device:{}".format(model_cuda_1.device))
     # 1. load model
-    embedding_model_id = 'Your mxbai-colbert-large-v1 model path'
+    embedding_model_id = 'mixedbread-ai/mxbai-colbert-large-v1'
     embedding_tokenizer = AutoTokenizer.from_pretrained(embedding_model_id)
     embedding_model = AutoModel.from_pretrained(embedding_model_id).to(main_device)
     
