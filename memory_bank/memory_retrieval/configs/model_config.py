@@ -9,7 +9,7 @@ embedding_model_dict = {
     "text2vec": "/All_Model_Zoo/text2vec-large-chinese",
     'multilingual-mpnet':"paraphrase-multilingual-mpnet-base-v2",
     'mpnet':"all-mpnet-base-v2",
-    'minilm-l6':'/All_Model_Zoo/all-MiniLM-L6-v2',
+    'minilm-l6':'sentence-transformers/all-MiniLM-L6-v2',
     'minilm-l12':'all-MiniLM-L12-v2',
     'multi-qa':"multi-qa-mpnet-base-dot-v1",
     'alephbert':'imvladikon/sentence-transformers-alephbert',

@@ -91,6 +91,7 @@ datasets/
 *.ckpt
 
 # Checkpoints and experiments
+outputs/
 checkpoints/
 runs/
 experiments/

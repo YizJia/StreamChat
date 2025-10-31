@@ -3,7 +3,7 @@ OURS_EGO="outputs/outputs.json" # chang to your json output save path
 LLAMA_3="lmms-lab/LongVA-7B-DPO" # chang to your LLaMA3 path
 SAVE_DIR="outputs/Llama-3-8B-outputs" # chang to your LLaMA3 score output path
 
-CUDA_VISIBLE_DEVICES=1,2 python inference_streaming_longva_v2.py \
+CUDA_VISIBLE_DEVICES=1,2 python -u inference_streaming_longva_v2.py \
                     --model_name lmms-lab/LongVA-7B-DPO \
                     --video_dir data/StreamBench_v0.3 \
                     --annotations data/StreamBench_v0.3/streaming_bench_v0.3.json \
@@ -36,7 +36,7 @@ mkdir -p ${SAVE_DIR}/StreamingBench_v0.3
 ################### Ours ###################
 mkdir -p ${SAVE_DIR}/StreamingBench_v0.3/Ours_rate0.2_chunk40
 for IDX in $(seq 0 $((CHUNKS-1))); do
-  CUDA_VISIBLE_DEVICES=${GPULIST[$IDX]} python3 eval_video_qa_with_llama3_ours.py \
+  CUDA_VISIBLE_DEVICES=${GPULIST[$IDX]} python3 -u eval_video_qa_with_llama3_ours.py \
     --predict_file ${OURS_EGO} \
     --output_dir ${SAVE_DIR}/StreamingBench_v0.3/Ours_rate0.2_chunk40 \
     --output_name ${CHUNKS}_${IDX} \
@@ -57,6 +57,6 @@ for IDX in $(seq 0 $((CHUNKS-1))); do
     cat ${SAVE_DIR}/StreamingBench_v0.3/Ours_rate0.2_chunk40/${CHUNKS}_${IDX}.json >> "$output_file"
 done
 
-python calculate_score.py \
+python -u calculate_score.py \
     --output_dir ${SAVE_DIR}/StreamingBench_v0.3/Ours_rate0.2_chunk40 \
     --output_name streamingbench_merge
